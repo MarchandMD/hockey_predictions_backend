@@ -6,7 +6,6 @@ ruby '2.7.4'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.8', '>= 5.2.8.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -46,3 +45,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "pry-rails", "~> 0.3.9"
 gem "rspec-rails", "~> 5.1"
+
+gem "pg", "~> 1.4"
+
+gem "graphql", "~> 2.0"
+gem "graphiql-rails", "~> 1.9"
