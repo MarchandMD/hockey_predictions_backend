@@ -52,3 +52,5 @@ gem "graphql", "~> 2.0"
 gem "graphiql-rails", "~> 1.9"
 
 gem "faraday", "~> 2.7"
+
+gem "net-http", "~> 0.3.2"
