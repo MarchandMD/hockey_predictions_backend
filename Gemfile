@@ -54,3 +54,6 @@ gem "graphiql-rails", "~> 1.9"
 gem "faraday", "~> 2.7"
 
 gem "net-http", "~> 0.3.2"
+
+gem "factory_bot_rails", "~> 6.2"
+gem "jsonapi-serializer", "~> 2.2"
