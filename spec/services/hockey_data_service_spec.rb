@@ -4,7 +4,6 @@ describe 'hockey_data_service' do
   describe '#todays_games' do
     it 'returns a list of games for today' do
       todays_games = HockeyDataService.new.todays_games
-
       expect(todays_games).to be_a Hash
       expect(todays_games).to have_key :dates
       expect(todays_games[:dates]).to be_an Array
