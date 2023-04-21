@@ -33,7 +33,7 @@
   <h1 align="center">hockey_predictions_backend</h1>
 
   <p align="center">
-    API only Rails application built with GraphQL to supply information from NHL API to front end.
+    API only Rails application built to supply information from NHL API to front end via RESTful conventions using a Service-Oriented Architecture.
 <br />
       Exposes endpoints to facilitate design of a front end interface for a game that allows users to predict the outcome of hockey games, as well as events that occur during a game.
     <br />
