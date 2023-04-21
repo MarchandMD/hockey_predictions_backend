@@ -19,6 +19,7 @@ class HockeyGame
     @away_score = data_hash[:teams][:away][:score]
     @home = data_hash[:teams][:home][:team][:name]
     @away = data_hash[:teams][:away][:team][:name]
+    @winner = winner
   end
 
   def winner

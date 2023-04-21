@@ -1,6 +1,6 @@
 class HockeyDataService
   def todays_games
-    get_url("/api/v1/schedule")
+    get_url("/api/v1/schedule?date=#{Date.today.as_json}")
   end
 
   def get_url(url, params = nil)
