@@ -22,12 +22,8 @@ class HockeyGame
   end
 
   def winner
-    if @abstractGameState == "Final" && home_score > away_score
-      @home
-    elsif away_score > home_score
-      @away
-    else
-      'tbd'
-    end
+    return 'tbd' unless @abstractGameState == 'Final'
+
+    home_score > away_score ? @home : @away
   end
 end
