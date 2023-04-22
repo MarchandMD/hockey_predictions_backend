@@ -39,6 +39,8 @@ describe 'HockeyGame' do
     expect(@hockey_game.away_score).to eq(0)
     expect(@hockey_game.home).to eq("Toronto Maple Leafs")
     expect(@hockey_game.away).to eq("Tampa Bay Lightning")
+    expect(@hockey_game.away_id).to eq(14)
+    expect(@hockey_game.home_id).to eq(10)
   end
   describe '#winner' do
     describe 'sad path' do

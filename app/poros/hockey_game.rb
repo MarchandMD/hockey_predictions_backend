@@ -7,7 +7,9 @@ class HockeyGame
                 :home_score,
                 :away_score,
                 :home,
-                :away
+                :away,
+                :home_id,
+                :away_id
 
   def initialize(data_hash)
     @gamePk = data_hash[:gamePk]
@@ -18,7 +20,9 @@ class HockeyGame
     @home_score = data_hash[:teams][:home][:score]
     @away_score = data_hash[:teams][:away][:score]
     @home = data_hash[:teams][:home][:team][:name]
+    @home_id = data_hash[:teams][:home][:team][:id]
     @away = data_hash[:teams][:away][:team][:name]
+    @away_id = data_hash[:teams][:away][:team][:id]
     @winner = winner
   end
 
