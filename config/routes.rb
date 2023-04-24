@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get '/todays_games', to: 'hockey_games#index'
+      get '/single_game_stats', to: 'hockey_games#show'
     end
   end
 end
