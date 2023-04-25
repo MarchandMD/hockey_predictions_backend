@@ -56,3 +56,9 @@ gem "factory_bot_rails", "~> 6.2"
 gem "jsonapi-serializer", "~> 2.2"
 
 gem "rack-cors", "~> 2.0"
+
+gem "figaro", "~> 1.2"
+
+gem "omniauth", "~> 2.1"
+gem "omniauth-google-oauth2", "~> 1.1"
+gem "omniauth-rails_csrf_protection", "~> 1.0"
