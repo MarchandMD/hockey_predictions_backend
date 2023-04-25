@@ -26,7 +26,29 @@ describe 'hockey_data_service' do
         expect(game_hash[:teams]).to have_key :home
         expect(game_hash[:teams][:away]).to have_key :score
         expect(game_hash[:teams][:home]).to have_key :score
+        expect(game_hash[:teams][:home][:team]).to have_key :id
+        expect(game_hash[:teams][:away][:team]).to have_key :id
       end
+    end
+  end
+
+  describe '#single_game_stats' do
+    it 'returns all the game data' do
+     gamePk = 2022030184
+
+     single_game_stats = HockeyDataService.new.single_game_stats(gamePk)
+     expect(single_game_stats).to be_a Hash
+     expect(single_game_stats).to have_key :gameData
+     expect(single_game_stats[:gameData]).to be_a Hash
+     expect(single_game_stats[:gameData]).to have_key :status
+     expect(single_game_stats[:gameData]).to have_key :teams
+     expect(single_game_stats[:gameData][:teams]).to be_a Hash
+     expect(single_game_stats[:gameData][:teams]).to have_key :away
+     expect(single_game_stats[:gameData][:teams]).to have_key :home
+     expect(single_game_stats[:gameData][:teams][:away]).to have_key :id
+     expect(single_game_stats[:gameData][:teams][:away]).to have_key :name
+     expect(single_game_stats[:gameData][:teams][:home]).to have_key :id
+     expect(single_game_stats[:gameData][:teams][:home]).to have_key :name
     end
   end
 end
