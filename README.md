@@ -126,7 +126,9 @@ This application will be live. Stay tuned.
 
 ## Roadmap
 
-- [ ] establish connection with NHL through a service, and expose the list of games for the current calendar day
+- [x] establish connection with NHL through a service, and expose the list of games for the current calendar day
+- [ ] test and add relationships between user (has many predictions) and
+  predictions (belongs_to user)
 
 See the [open issues](https://github.com/marchandmd/hockey_predictions_backend/issues) for a full list of proposed features (and known issues).
 
