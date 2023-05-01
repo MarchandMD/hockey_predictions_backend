@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_25_205033) do
+ActiveRecord::Schema.define(version: 2023_05_01_204102) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "predictions", force: :cascade do |t|
+    t.string "gamePk"
+    t.bigint "user_id"
+    t.string "expected_winner"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_predictions_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"
@@ -24,4 +33,5 @@ ActiveRecord::Schema.define(version: 2023_04_25_205033) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "predictions", "users"
 end

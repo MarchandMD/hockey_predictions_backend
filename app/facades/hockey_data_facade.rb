@@ -13,8 +13,8 @@ class HockeyDataFacade
       gamePk: single_game_stats[:gamePk],
       status: single_game_stats[:gameData][:status],
       teams: {
-        away: { score: nil, team: { name: single_game_stats[:gameData][:teams][:away][:name], id: single_game_stats[:gameData][:teams][:away][:id] } },
-        home: { score: nil, team: { name: single_game_stats[:gameData][:teams][:home][:name], id: single_game_stats[:gameData][:teams][:home][:id] } }
+        away: { score: 0, team: { name: single_game_stats[:gameData][:teams][:away][:name], id: single_game_stats[:gameData][:teams][:away][:id] } },
+        home: { score: 0, team: { name: single_game_stats[:gameData][:teams][:home][:name], id: single_game_stats[:gameData][:teams][:home][:id] } }
       }
     }
 

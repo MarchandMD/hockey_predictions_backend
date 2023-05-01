@@ -1,17 +1,23 @@
 class Api::V1::UsersController < ApplicationController
   def create
-    new_user = User.new(user_params)
+    user = User.find_or_create_by(first_name: user_params['first_name'], last_name: user_params['last_name']) do |u|
+      u.email = user_params['email']
+    end
 
-    if new_user.save
-      render json: UserSerializer.new(new_user)
+    if user.valid?
+      render json: UserSerializer.new(user)
     else
       render json: { failure: 'not good' }, status: 418
     end
   end
 
+  def show
+    render json: UserSerializer.new(User.find(params[:id]))
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password)
+    params.permit(:uid, :provider, :first_name, :last_name, :email, :password)
   end
 end
