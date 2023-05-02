@@ -1,4 +1,9 @@
 class HockeyDataFacade
+
+  def single_game_primary_key
+    service.todays_games[:dates][0][:games].sample[:gamePk]
+  end
+
   def todays_games
     todays_games = service.todays_games[:dates][0][:games]
     todays_games.map do |game_hash|
