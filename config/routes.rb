@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       get '/single_game_stats', to: 'hockey_games#show'
       post '/users', to: 'users#create'
       get '/users/:id', to: 'users#show'
+      post '/users/:id/predictions', to: 'predictions#create'
     end
   end
 end
