@@ -17,4 +17,11 @@ describe HockeyDataFacade do
       expect(single_game_stats).to be_a HockeyGame
     end
   end
+
+  describe '#single_game_primary_key' do
+   it 'returns a single primary key for a game' do
+    todays_games = HockeyDataFacade.new.single_game_primary_key
+    expect(todays_games).to be_an Integer
+   end
+  end
 end

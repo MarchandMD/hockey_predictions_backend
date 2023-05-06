@@ -1,4 +1,9 @@
 class HockeyDataFacade
+
+  def single_game_primary_key
+    service.todays_games[:dates][0][:games].sample[:gamePk]
+  end
+
   def todays_games
     todays_games = service.todays_games[:dates][0][:games]
     todays_games.map do |game_hash|
@@ -13,8 +18,8 @@ class HockeyDataFacade
       gamePk: single_game_stats[:gamePk],
       status: single_game_stats[:gameData][:status],
       teams: {
-        away: { score: nil, team: { name: single_game_stats[:gameData][:teams][:away][:name], id: single_game_stats[:gameData][:teams][:away][:id] } },
-        home: { score: nil, team: { name: single_game_stats[:gameData][:teams][:home][:name], id: single_game_stats[:gameData][:teams][:home][:id] } }
+        away: { score: 0, team: { name: single_game_stats[:gameData][:teams][:away][:name], id: single_game_stats[:gameData][:teams][:away][:id] } },
+        home: { score: 0, team: { name: single_game_stats[:gameData][:teams][:home][:name], id: single_game_stats[:gameData][:teams][:home][:id] } }
       }
     }
 

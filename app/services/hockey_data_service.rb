@@ -15,8 +15,7 @@ class HockeyDataService
 
   def conn
     Faraday.new(url: "https://statsapi.web.nhl.com") do |faraday|
-      # faraday.params['api_key'] = ENV.fetch('tmdb_api_key', nil)
-      # faraday.params['language'] = 'en-US'
+      # kewl code here
     end
   end
 end
