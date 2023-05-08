@@ -8,6 +8,9 @@ Rails.application.routes.draw do
       post '/users', to: 'users#create'
       get '/users/:id', to: 'users#show'
       post '/users/:id/predictions', to: 'predictions#create'
+      get '/users/:id/predictions', to: 'predictions#index'
+      delete '/users/:user_id/predictions/:id', to: 'predictions#destroy'
+      patch '/users/:user_id/predictions/:id', to: 'predictions#update'
     end
   end
 end
