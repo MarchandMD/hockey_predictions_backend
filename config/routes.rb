@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       get '/todays_games', to: 'hockey_games#index'
       get '/single_game_stats', to: 'hockey_games#show'
+      get '/users', to: 'users#index'
       post '/users', to: 'users#create'
       get '/users/:id', to: 'users#show'
       post '/users/:id/predictions', to: 'predictions#create'
