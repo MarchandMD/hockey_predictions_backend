@@ -1,4 +1,8 @@
 class Api::V1::UsersController < ApplicationController
+  def index
+    render json: UserSerializer.new(User.all)
+  end
+
   def create
     user = User.find_or_create_by(first_name: user_params['first_name'], last_name: user_params['last_name']) do |u|
       u.email = user_params['email']

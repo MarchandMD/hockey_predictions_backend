@@ -6,12 +6,12 @@ class Api::V1::PredictionsController < ApplicationController
 
   def create
     user = User.find(params[:id])
-    user.predictions.create!(gamePk: params[:gamePk], expected_winner: params[:expected_winner])
+    user.predictions.create!(gamePk: params[:gamePk], expected_winner: params[:expected_winner], status: params[:status])
     render json: UserSerializer.new(user)
   end
 
   def update
-    prediction = Prediction.update(params[:id], expected_winner: params[:expected_winner])
+    Prediction.update(params[:id], expected_winner: params[:expected_winner])
     render json: UserSerializer.new(User.find(params[:user_id]))
   end
 
