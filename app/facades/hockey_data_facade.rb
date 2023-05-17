@@ -1,4 +1,8 @@
 class HockeyDataFacade
+  def update_prediction_status(prediction)
+    response = service.update_prediction_status(prediction)
+    Prediction.update(prediction.id, status: response[:currentPeriodTimeRemaining])
+  end
 
   def single_game_primary_key
     service.todays_games[:dates][0][:games].sample[:gamePk]
@@ -20,7 +24,8 @@ class HockeyDataFacade
       teams: {
         away: { score: 0, team: { name: single_game_stats[:gameData][:teams][:away][:name], id: single_game_stats[:gameData][:teams][:away][:id] } },
         home: { score: 0, team: { name: single_game_stats[:gameData][:teams][:home][:name], id: single_game_stats[:gameData][:teams][:home][:id] } }
-      }
+      },
+      datetime: single_game_stats[:gameData][:datetime][:dateTime]
     }
 
     HockeyGame.new(data_hash)
