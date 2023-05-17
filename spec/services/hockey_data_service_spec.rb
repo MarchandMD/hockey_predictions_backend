@@ -28,6 +28,7 @@ describe 'hockey_data_service' do
         expect(game_hash[:teams][:home]).to have_key :score
         expect(game_hash[:teams][:home][:team]).to have_key :id
         expect(game_hash[:teams][:away][:team]).to have_key :id
+        expect(game_hash).to have_key :gameDate
       end
     end
   end
@@ -49,6 +50,10 @@ describe 'hockey_data_service' do
      expect(single_game_stats[:gameData][:teams][:away]).to have_key :name
      expect(single_game_stats[:gameData][:teams][:home]).to have_key :id
      expect(single_game_stats[:gameData][:teams][:home]).to have_key :name
+     expect(single_game_stats[:gameData]).to have_key :datetime
+     expect(single_game_stats[:gameData][:datetime]).to be_a Hash
+     expect(single_game_stats[:gameData][:datetime]).to have_key :dateTime
+     expect(single_game_stats[:gameData][:datetime][:dateTime]).to be_a String
     end
   end
 end

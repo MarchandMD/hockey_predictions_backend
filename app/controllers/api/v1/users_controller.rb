@@ -19,6 +19,16 @@ class Api::V1::UsersController < ApplicationController
     render json: UserSerializer.new(User.find(params[:id]))
   end
 
+  def update
+    user = User.find(params[:id])
+    user.predictions.each do |prediction|
+      if prediction.created_at < DateTime.now
+        HockeyDataFacade.new.update_prediction_status(prediction)
+      end
+    end
+    render json: UserSerializer.new(user)
+  end
+
   private
 
   def user_params
