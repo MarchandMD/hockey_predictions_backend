@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       get '/users/:id/predictions', to: 'predictions#index'
       delete '/users/:user_id/predictions/:id', to: 'predictions#destroy'
       patch '/users/:user_id/predictions/:id', to: 'predictions#update'
+      patch '/users/:id', to: 'users#update'
     end
   end
 end
