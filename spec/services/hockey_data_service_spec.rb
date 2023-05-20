@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'hockey_data_service' do
   describe '#todays_games' do
-    it 'returns a list of games for today' do
+    it 'returns a list of games for today', :vcr do
       todays_games = HockeyDataService.new.todays_games
       expect(todays_games).to be_a Hash
       expect(todays_games).to have_key :dates
@@ -34,7 +34,7 @@ describe 'hockey_data_service' do
   end
 
   describe '#single_game_stats' do
-    it 'returns all the game data' do
+    it 'returns all the game data', :vcr do
      gamePk = 2022030184
 
      single_game_stats = HockeyDataService.new.single_game_stats(gamePk)
