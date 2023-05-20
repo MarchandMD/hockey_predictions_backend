@@ -65,3 +65,7 @@ gem "omniauth-rails_csrf_protection", "~> 1.0"
 gem "shoulda-matchers", "~> 5.3"
 
 gem "faker", "~> 3.2"
+
+gem "vcr", "~> 6.1", group: %i[test development]
+
+gem "webmock", "~> 3.18", group: %i[test development]
