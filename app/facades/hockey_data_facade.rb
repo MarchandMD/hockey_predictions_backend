@@ -4,12 +4,12 @@ class HockeyDataFacade
     Prediction.update(prediction.id, status: response[:currentPeriodTimeRemaining])
   end
 
-  def single_game_primary_key
-    service.todays_games[:dates][0][:games].sample[:gamePk]
+  def single_game_primary_key(date: Date.today.to_json)
+    service.todays_games(date: date)[:dates][0][:games].sample[:gamePk]
   end
 
-  def todays_games
-    todays_games = service.todays_games[:dates][0][:games]
+  def todays_games(date: Date.today.to_json)
+    todays_games = service.todays_games(date: date)[:dates][0][:games]
     todays_games.map do |game_hash|
       HockeyGame.new(game_hash)
     end

@@ -3,7 +3,7 @@ require 'rails_helper'
 describe HockeyDataFacade do
   context '#todays_games' do
     it 'returns an Array of HockeyGame Objects', :vcr do
-      todays_games = HockeyDataFacade.new.todays_games
+      todays_games = HockeyDataFacade.new.todays_games(date: "2023-03-04")
       expect(todays_games).to be_an Array
       todays_games.all? do |game|
         expect(game).to be_a HockeyGame
@@ -19,9 +19,9 @@ describe HockeyDataFacade do
   end
 
   describe '#single_game_primary_key' do
-   it 'returns a single primary key for a game', :vcr do
-    todays_games = HockeyDataFacade.new.single_game_primary_key
-    expect(todays_games).to be_an Integer
-   end
+    it 'returns a single primary key for a game', :vcr do
+      todays_games = HockeyDataFacade.new.single_game_primary_key(date: "2023-03-04")
+      expect(todays_games).to be_an Integer
+    end
   end
 end

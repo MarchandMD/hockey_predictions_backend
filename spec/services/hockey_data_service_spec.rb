@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'hockey_data_service' do
   describe '#todays_games' do
     it 'returns a list of games for today', :vcr do
-      todays_games = HockeyDataService.new.todays_games
+      todays_games = HockeyDataService.new.todays_games(date: "2023-03-04")
       expect(todays_games).to be_a Hash
       expect(todays_games).to have_key :dates
       expect(todays_games[:dates]).to be_an Array
