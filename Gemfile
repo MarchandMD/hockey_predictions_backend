@@ -69,3 +69,5 @@ gem "faker", "~> 3.2"
 gem "vcr", "~> 6.1", group: %i[test development]
 
 gem "webmock", "~> 3.18", group: %i[test development]
+
+gem "simplecov", "~> 0.22.0"
