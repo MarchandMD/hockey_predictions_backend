@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       get '/users', to: 'users#index'
       post '/users', to: 'users#create'
       get '/users/:id', to: 'users#show'
+      get '/game/:gamePk/feed/live', to: 'feeds#show'
       post '/users/:id/predictions', to: 'predictions#create'
       get '/users/:id/predictions', to: 'predictions#index'
       delete '/users/:user_id/predictions/:id', to: 'predictions#destroy'

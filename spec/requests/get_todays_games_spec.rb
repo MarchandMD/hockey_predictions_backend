@@ -14,7 +14,6 @@ RSpec.describe 'get todays games' do
 
       expect(parsed_response[:data]).to be_an Array
 
-
       parsed_response[:data].each do |game|
         expect(game).to be_a Hash
         expect(game).to have_key :id
@@ -34,5 +33,4 @@ RSpec.describe 'get todays games' do
       end
     end
   end
-
 end
