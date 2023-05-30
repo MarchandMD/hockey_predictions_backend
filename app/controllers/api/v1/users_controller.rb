@@ -16,6 +16,8 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def show
+    user = User.find(params[:id])
+    user.calculate_total_points
     render json: UserSerializer.new(User.find(params[:id]))
   end
 

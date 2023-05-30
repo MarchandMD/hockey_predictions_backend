@@ -1,4 +1,8 @@
 class HockeyDataService
+  def linescore(gamePk:)
+    get_url("/api/v1/game/#{gamePk}/linescore")
+  end
+
   def update_prediction_status(prediction)
     get_url("https://statsapi.web.nhl.com/api/v1/game/#{prediction.gamePk}/linescore")
   end

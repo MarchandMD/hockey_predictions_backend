@@ -1,6 +1,12 @@
-require 'rails_helper'
-
 describe HockeyDataFacade do
+
+  context "#actual_winner" do
+    it 'returns the name of the winning team', :vcr do
+      winner = HockeyDataFacade.new.actual_winner(gamePk: 2022020309)
+      expect(winner).to eq('Minnesota Wild')
+    end
+  end
+
   context '#todays_games' do
     it 'returns an Array of HockeyGame Objects', :vcr do
       todays_games = HockeyDataFacade.new.todays_games(date: "2023-03-04")
@@ -10,6 +16,7 @@ describe HockeyDataFacade do
       end
     end
   end
+
   context "#single_game_data" do
     it 'Returns a single HockeyGame Object', :vcr do
       single_game_pk = 2022030144

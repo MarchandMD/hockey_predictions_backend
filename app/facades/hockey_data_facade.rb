@@ -1,4 +1,13 @@
 class HockeyDataFacade
+  def actual_winner(gamePk:)
+    response = service.linescore(gamePk: gamePk)
+    home = response[:teams][:home]
+    away = response[:teams][:away]
+    return unless response[:currentPeriodTimeRemaining] == 'Final'
+
+    home[:goals] > away[:goals] ? home[:team][:name] : away[:team][:name]
+  end
+
   def update_prediction_status(prediction)
     response = service.update_prediction_status(prediction)
     Prediction.update(prediction.id, status: response[:currentPeriodTimeRemaining])
