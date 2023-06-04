@@ -6,6 +6,7 @@ class Api::V1::UsersController < ApplicationController
   def create
     user = User.find_or_create_by(first_name: user_params['first_name'], last_name: user_params['last_name']) do |u|
       u.email = user_params['email']
+      u.image = user_params['image']
     end
 
     if user.valid?
@@ -16,6 +17,8 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def show
+    user = User.find(params[:id])
+    user.calculate_total_points
     render json: UserSerializer.new(User.find(params[:id]))
   end
 
@@ -32,6 +35,6 @@ class Api::V1::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:uid, :provider, :first_name, :last_name, :email, :password)
+    params.require(:user).permit(:uid, :provider, :first_name, :last_name, :email, :password, :image)
   end
 end

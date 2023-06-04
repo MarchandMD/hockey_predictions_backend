@@ -1,10 +1,14 @@
 class HockeyDataService
+  def linescore(gamePk:)
+    get_url("/api/v1/game/#{gamePk}/linescore")
+  end
+
   def update_prediction_status(prediction)
     get_url("https://statsapi.web.nhl.com/api/v1/game/#{prediction.gamePk}/linescore")
   end
 
-  def todays_games
-    get_url("/api/v1/schedule?date=#{Date.today.as_json}")
+  def todays_games(date: Date.today.as_json)
+    get_url("/api/v1/schedule?date=#{date}")
   end
 
   def single_game_stats(gamePk)

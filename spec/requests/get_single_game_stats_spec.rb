@@ -1,8 +1,6 @@
-require 'rails_helper'
-
 RSpec.describe 'get single game stats' do
   context "happy path" do
-    it 'returns json of single game stats' do
+    it 'returns json of single game stats', :vcr do
       get "/api/v1/single_game_stats?gamePk=2022030144"
 
       expect(response).to be_successful
