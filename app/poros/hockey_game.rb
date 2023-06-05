@@ -1,16 +1,16 @@
 class HockeyGame
-  attr_accessor :gamePk,
-                :abstractGameState,
-                :codedGameState,
-                :detailedState,
-                :statusCode,
-                :home_score,
-                :away_score,
-                :home,
-                :away,
-                :home_id,
-                :away_id,
-                :datetime
+  attr_reader :gamePk,
+              :abstractGameState,
+              :codedGameState,
+              :detailedState,
+              :statusCode,
+              :home_score,
+              :away_score,
+              :home,
+              :away,
+              :home_id,
+              :away_id,
+              :datetime
 
   def initialize(data_hash)
     @gamePk = data_hash[:gamePk]

@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'get todays games' do
   context "happy path" do
     it 'returns json data of todays games', :vcr do
-      get "/api/v1/todays_games"
+      get "/api/v1/todays_games?date=2023-03-04"
 
       expect(response).to be_successful
 
@@ -13,7 +13,6 @@ RSpec.describe 'get todays games' do
       expect(parsed_response).to have_key :data
 
       expect(parsed_response[:data]).to be_an Array
-
 
       parsed_response[:data].each do |game|
         expect(game).to be_a Hash
@@ -34,5 +33,4 @@ RSpec.describe 'get todays games' do
       end
     end
   end
-
 end

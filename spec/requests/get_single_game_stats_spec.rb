@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe 'get single game stats' do
   context "happy path" do
     it 'returns json of single game stats', :vcr do

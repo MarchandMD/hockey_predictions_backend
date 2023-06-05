@@ -7,7 +7,7 @@ ruby '2.7.4'
 gem 'rails', '~> 5.2.8', '>= 5.2.8.1'
 # Use sqlite3 as the database for Active Record
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 4.3'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -69,3 +69,5 @@ gem "faker", "~> 3.2"
 gem "vcr", "~> 6.1", group: %i[test development]
 
 gem "webmock", "~> 3.18", group: %i[test development]
+
+gem "simplecov", "~> 0.22.0"
