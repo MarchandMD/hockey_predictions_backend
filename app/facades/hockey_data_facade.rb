@@ -20,7 +20,7 @@ class HockeyDataFacade
   def todays_games(date: Date.today.to_json)
     todays_games = service.todays_games(date: date)
 
-    return [] if todays_games.nil?
+    return [] if todays_games[:dates][0].nil?
 
     todays_games = todays_games[:dates][0][:games]
     todays_games.map do |game_hash|

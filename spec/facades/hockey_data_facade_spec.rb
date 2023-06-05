@@ -1,5 +1,4 @@
 describe HockeyDataFacade do
-
   context "#actual_winner" do
     it 'returns the name of the winning team', :vcr do
       winner = HockeyDataFacade.new.actual_winner(gamePk: 2022020309)
@@ -8,11 +7,19 @@ describe HockeyDataFacade do
   end
 
   context '#todays_games' do
-    it 'returns an Array of HockeyGame Objects', :vcr do
-      todays_games = HockeyDataFacade.new.todays_games(date: "2023-03-04")
-      expect(todays_games).to be_an Array
-      todays_games.all? do |game|
-        expect(game).to be_a HockeyGame
+    describe 'happy path' do
+      it 'returns an Array of HockeyGame Objects', :vcr do
+        todays_games = HockeyDataFacade.new.todays_games(date: "2023-03-04")
+        expect(todays_games).to be_an Array
+        todays_games.all? do |game|
+          expect(game).to be_a HockeyGame
+        end
+      end
+    end
+    describe 'sad path' do
+      it 'returns an empty array', :vcr do
+        todays_games = HockeyDataFacade.new.todays_games(date: "2023-06-06")
+        expect(todays_games).to eq([])
       end
     end
   end
